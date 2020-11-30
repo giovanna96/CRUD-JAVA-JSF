@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:h = "http://java.sun.com/jsf/html"
+   	   xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>TEste</title>
+</h:head>
+<h:body>
+
+<h:form>
+	<h:outputLabel value="Item"></h:outputLabel>
+	<h:inputText value="#{produtoMBean.produto.nome}"></h:inputText>
+	<h:commandButton value="Adicionar" action="${produtoMBean.salvar}"></h:commandButton>
+</h:form>
+</h:body>
+</html>
