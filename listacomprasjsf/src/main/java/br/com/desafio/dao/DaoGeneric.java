@@ -18,7 +18,6 @@ public class DaoGeneric<E> {
 			
 			entityManager.persist(entidade);
 			entityManager.getTransaction().commit();
-			entityManager.close();
 			
 		} catch (Exception e) {
 			entityManager.getTransaction().rollback();
@@ -33,7 +32,6 @@ public class DaoGeneric<E> {
 			
 			entityManager.merge(entidade);
 			entityManager.getTransaction().commit();
-			entityManager.close();
 			
 		} catch (Exception e) {
 			entityManager.getTransaction().rollback();
@@ -48,7 +46,6 @@ public class DaoGeneric<E> {
 			
 			entityManager.remove(entidade);
 			entityManager.getTransaction().commit();
-			entityManager.close();
 			
 		} catch (Exception e) {
 			entityManager.getTransaction().rollback();
@@ -82,7 +79,6 @@ public class DaoGeneric<E> {
 		List<E> list = entityManager.createQuery("FROM " + entidade.getName()).getResultList();
 		
 		entityManager.getTransaction().commit();
-		entityManager.close();
 		
 		return list;
 	}

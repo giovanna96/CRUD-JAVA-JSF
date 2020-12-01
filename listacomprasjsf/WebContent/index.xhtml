@@ -15,7 +15,7 @@
 			<h3>Lista de Compras</h3>
 		</div>
 		<div class="card-body">
-			<h:form>
+			<h:form id="form">
 				<div class="row">
 					<div class="col-md-2">
 						<h:inputText class="form-control"
@@ -33,6 +33,7 @@
 				<div class="col-md-6">
 					<h:dataTable styleClass="table" value="#{produtoMBean.produtos}"
 						var="produto">
+						
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Cód." />
