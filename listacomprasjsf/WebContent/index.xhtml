@@ -5,14 +5,64 @@
    	   xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>TEste</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<title>Lista de Compras</title>
 </h:head>
 <h:body>
+	<div class="card" style="margin-left:3%">
+		<div class="card-header bg-secondary">
+			<h3>Lista de Compras</h3>
+		</div>
+		<div class="card-body">
+			<h:form>
+				<div class="row">
+					<div class="col-md-2">
+						<h:inputText class="form-control"
+							value="#{produtoMBean.produto.nome}"></h:inputText>
 
-<h:form>
-	<h:outputLabel value="Item"></h:outputLabel>
-	<h:inputText value="#{produtoMBean.produto.nome}"></h:inputText>
-	<h:commandButton value="Adicionar" action="#{produtoMBean.salvar}"></h:commandButton>
-</h:form>
+					</div>
+					<div class="col-md-2">
+						<h:commandLink class="btn btn-primary" value="Adicionar" action="#{produtoMBean.editar}" > <i class="fas fa-plus "/></h:commandLink >	
+					</div>
+				</div>
+			
+
+			<br></br>
+			<div class="row">
+				<div class="col-md-6">
+					<h:dataTable styleClass="table" value="#{produtoMBean.produtos}"
+						var="produto">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cód." />
+							</f:facet>
+							<h:outputText value="#{produto.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Item" />
+							</f:facet>
+							<h:outputText value="#{produto.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="" />
+							</f:facet>
+							
+							<h:commandLink  value="" action="#{produtoMBean.verProduto(produto.id)}"><i class="fas fa-edit btn btn-primary"></i></h:commandLink>
+							<h:commandLink style="margin-left:1%" value="" action="#{produtoMBean.deletar(produto)}"><i class="fas fa-trash btn btn-danger"></i></h:commandLink>
+							
+
+						</h:column>
+
+					</h:dataTable>
+				</div>
+			</div>
+			</h:form>
+		</div>
+</div>
+	
+
 </h:body>
 </html>
